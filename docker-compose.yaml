@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  quarkus-app:
+    container_name: quarkus-app
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:8080"
+      - "5005:5005" # Debugging port
+    working_dir: /code
+    entrypoint: [ "mvn", "clean", "quarkus:dev" ]
+    volumes:
+      - .:/code
